@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+  const arr = ["한손검", "쌍검", "대검", "태도", "해머", "랜스", "건랜스",
+    "차지엑스", "라이트 보우건", "헤비 보우건", "활"];
+  const divEl = document.createElement("div")
+  document.body.appendChild(divEl)
+  const ulEl = document.createElement("ul")
+  divEl.appendChild(ulEl)
+  arr.forEach((e) => {
+    const liEl = document.createElement("li");
+    liEl.innerText = e;
+    ulEl.appendChild(liEl);
+  });
+</script>
+
+</body>
+</html>
