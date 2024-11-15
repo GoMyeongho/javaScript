@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: lightblue;
+    }
+
+    #container {
+      width: 90vw;
+      margin: 100px auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-start;
+      text-align: center;
+      position: relative;
+      font-weight: bold;
+      line-height: 1.5;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      background-color: #fff;
+      color: #000;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    h1 {
+      width: 60%;
+      margin-bottom: 20px;
+    }
+
+    button {
+      margin: 20px 5%;
+      padding: 10px;
+      width: 50%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      outline: none;
+      font-size: 16px;
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #ccc;
+      cursor: default;
+      color: #fff;
+      transition: transform 0.5s ease;
+    }
+
+    @keyframes oscillate {
+      0% {
+        transform: rotate(0deg)
+      }
+      10% {
+        transform: translate(0, -5px);
+      }
+      20% {
+        transform: translate(10px, 0px);
+      }
+      25% {
+        transform: rotate(5deg)
+      }
+      30% {
+        transform: translate(0, 5px);
+      }
+      40% {
+        transform: translate(-10px, 0px);
+      }
+      50% {
+        transform: rotate(0deg) translate(0, 0);
+      }
+      60% {
+        transform: translate(0, -5px);
+      }
+      70% {
+        transform: translate(10px, 0px);
+      }
+      75% {
+        transform: rotate(-5deg)
+      }
+      80% {
+        transform: translate(0, 5px);
+      }
+      90% {
+        transform: translate(-10px, 0px);
+      }
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+
+    @keyframes dropout {
+      0% {
+        transform: translate(0, 0);
+      }
+      50% {
+        transform: translate(0, 400px);
+        opacity: 0.5;
+      }
+      100% {
+        transform: translate(0, 430px);
+        opacity: 0;
+      }
+    }
+
+    input {
+      margin: 30px 0;
+      width: 60%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      outline: none;
+      font-size: 16px;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    input:focus {
+      box-shadow: 0 0 5px #025aa5;
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      position: relative;
+      width: 30%;
+      font-size: 14px;
+      margin-left: 10px;
+      outline: none;
+    }
+
+    .able {
+      box-shadow: 2px 4px 6px black;
+      background-color: #0275d8;
+      transition: transform 0.1s, box-shadow 0.1s, color 0.1s, border 0.1s;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .able:active {
+      background-color: #025aa5;
+      box-shadow: 1px 2px 4px black;
+      transform: translateY(2px);
+      color: #aaa;
+      border: 1px solid #aaa;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        background-color: lightblue;
+      }
+
+      #container {
+        width: 500px;
+        margin: 10px auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+        font-weight: bold;
+        line-height: 1.5;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        background-color: #fff;
+        color: #000;
+        font-family: 'Noto Sans KR', sans-serif;
+      }
+
+      button {
+        margin-top: 20px;
+        padding: 10px;
+        width: 300px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        outline: none;
+        font-size: 16px;
+        font-family: 'Noto Sans KR', sans-serif;
+        background-color: #ccc;
+        cursor: default;
+      }
+
+      input {
+        margin: 10px 0;
+        width: 90%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        outline: none;
+        font-size: 16px;
+        font-family: 'Noto Sans KR', sans-serif;
+      }
+
+      label {
+        display: flex;
+        align-items: center;
+        justify-content: right;
+        position: relative;
+        width: 90%;
+        height: 14px;
+        font-size: 14px;
+        padding: 5px 0;
+        outline: none;
+      }
+
+
+      h1 {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div id="container">
+  <h1>회원 가입</h1>
+  <input id="id" name="id" type="text"/>
+  <label class="id" for="id"></label>
+  <input id="pw" name="pw" type="password"/>
+  <label class="pw" for="pw"></label>
+  <input id="email" name="email" type="text"/>
+  <label class="email" for="email"></label>
+  <input id="phone" name="phone" type="text"/>
+  <label for="phone"></label>
+  <button class="disable">가입 요청</button>
+</div>
+<script>
+  const idRe = /^[a-zA-Z0-9_]{8,20}$/;
+  const pwRe = /^[a-zA-Z0-9!@#$%^&*()_+={}\[\]:;"'<>,.?/\\|`~-]{8,20}$/;
+  const emailRe = /^[a-zA-Z0-9_]+@[a-zA-Z]+(\.[a-zA-Z]+)*\.[a-zA-Z]{2,6}$/;
+  const phoneRe = /^[0-9]{3}-[0-9]{4}-[0-9]{4}$/;
+  const valid = [false, false, false, false]
+
+  function validateInput(input, regex, label, number) {
+    if (regex.test(input.value)) {
+      input.style.border = "1px solid green";
+      label.textContent = "사용 가능 합니다.";
+      label.style.color = "green";
+      valid[number] = true;
+    } else {
+      input.style.border = "1px solid red";
+      label.textContent = "사용 가능하지 않습니다.";
+      label.style.color = "red";
+      valid[number] = false;
+    }
+  }
+
+  let clickCount = 0;
+
+  const button = document.querySelector('button');
+  button.addEventListener('click', () => {
+    if (!button.classList.contains('able')) {
+      button.style.animation = 'none';  // 애니메이션을 리셋
+      // 애니메이션을 다시 설정
+      button.offsetHeight;  // DOM 을 강제로 업데이트하여 애니메이션을 다시 시작하도록 함
+      button.style.animation = 'oscillate 0.3s forwards';
+      clickCount++;
+      if (clickCount === 10) {
+        button.style.animation = 'none';  // 애니메이션을 리셋
+        button.offsetHeight;
+        button.disabled = true;
+        button.style.animation = 'dropout 1s';
+      }
+    }
+  })
+  button.addEventListener('animationend', () => {
+    if (clickCount === 10) {
+      button.style.opacity = '0';  // 애니메이션이 끝난 후 opacity를 0으로 설정
+    }
+  });
+
+  function checkValid() {
+    let validCount = 0;
+    for (let i = 0; i < valid.length; i++) {
+      if (valid[i]) {
+        validCount++;
+      }
+    }
+    if (validCount === 4) {
+      button.classList.add('able');
+      button.style.opacity = "1";
+      button.disabled = false;
+      clickCount = 0;
+    } else {
+      button.classList.remove('able');
+    }
+  }
+
+
+  document.getElementById("id").addEventListener("input", function () {
+    const label = document.querySelector('label[for="id"]');
+    validateInput(this, idRe, label, 0);
+    checkValid();
+  });
+
+  document.getElementById("pw").addEventListener("input", function () {
+    const label = document.querySelector('label[for="pw"]');
+    validateInput(this, pwRe, label, 1);
+    checkValid();
+  });
+
+  document.getElementById("email").addEventListener("input", function () {
+    const label = document.querySelector('label[for="email"]');
+    validateInput(this, emailRe, label, 2);
+    checkValid();
+  });
+
+  document.getElementById("phone").addEventListener("input", function () {
+    const label = document.querySelector('label[for="phone"]');
+    validateInput(this, phoneRe, label, 3);
+    checkValid();
+  });
+
+</script>
+</body>
+</html>
