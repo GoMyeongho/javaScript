@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    #container {
+      width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: orange;
+    }
+
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+      background-color: #333;
+      color: white;
+      cursor: pointer;
+      border: 1px solid white;
+      border-radius: 10px;
+      box-shadow: 2px 4px 6px black;
+      transition: transform 0.1s, box-shadow 0.1s, color 0.1s, border 0.1s;
+    }
+
+    button:active {
+      transform: translateY(2px);
+      box-shadow: 1px 2px 4px black;
+      color: #aaa;
+      border: 1px solid #aaa;
+    }
+  </style>
+</head>
+<body>
+<div id="container">
+  <button id="colorButton">
+    Change Background Color
+  </button>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+  const colorList = ['red', 'orange', 'yellow', 'green', 'blue', 'navy', 'purple'];
+  let i = 0;
+
+  $('#colorButton').on('click', function () {
+    $('#container').css('background-color', colorList[i++ % colorList.length]);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Title</title>
+  <style>
+    #container {
+      width: 500px;
+      height: 500px;
+      margin: 0 auto;
+    }
+
+    #button {
+      width: 100%;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      gap: 1%;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    button {
+      font-family: 'Noto Sans KR', sans-serif;
+      font-weight: bold;
+      width: 32%;
+      height: 100%;
+      border: 1px solid #fff;
+      border-radius: 10px;
+      box-shadow: 2px 4px 6px black;
+      transition: transform 0.1s, box-shadow 0.1s, color 0.1s, border 0.1s;
+      color: #fff;
+      font-size: 16px;
+    }
+
+    button:active {
+      transform: translateY(2px);
+      box-shadow: 1px 2px 4px black;
+      color: #aaa;
+      border: 1px solid #aaa;
+    }
+
+    #button button:hover {
+      cursor: pointer;
+    }
+
+    #green {
+      background-color: green;
+    }
+
+    #orange {
+      background-color: orange;
+    }
+
+    #purple {
+      background-color: purple;
+    }
+
+    #content {
+      width: 100%;
+      height: 50%;
+      background-color: #000;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 1px 2px 4px black;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .dot {
+      width: 5px;
+      height: 5px;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.1s;
+    }
+
+    .dot:hover {
+      transition-delay: 0s;
+      background-color: rgba(255, 255, 255, 0.7);
+    }
+
+    .dot.active {
+      background-color: rgba(255, 255, 255, 0.7);
+    }
+
+    .dot:not(:hover) {
+      transition-delay: 1s;
+    }
+  </style>
+</head>
+<body>
+<div id="container">
+  <div id="button">
+    <button id="green" onclick="colorChange(this.id)">Green</button>
+    <button id="orange" onclick="colorChange(this.id)">Orange</button>
+    <button id="purple" onclick="colorChange(this.id)">Purple</button>
+  </div>
+  <div id="content"></div>
+</div>
+
+<script>
+  for (let i = 0; i < 5000; i++) {
+    const dot = document.createElement('div');
+    dot.classList.add('dot');
+    document.querySelector('#content').appendChild(dot);
+  }
+  const content = document.querySelector('#content');
+
+  function colorChange(string) {
+    content.style.backgroundColor = string;
+  }
+
+</script>
+</body>
+</html>

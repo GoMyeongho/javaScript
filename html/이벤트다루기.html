@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Title</title>
+</head>
+<body>
+<input id="input-box" onblur="blurEvent()" onfocus="focusEvent()" type="text">
+<button class="btn1">버튼</button>
+<button class="btn2">버튼</button>
+<button class="btn3" onclick="clickEvent()">버튼</button>
+<script>
+  const inputBox = document.querySelector("#input-box");
+
+  function focusEvent() {
+    inputBox.style.backgroundColor = "orange";
+  }
+
+  function blurEvent() {
+    inputBox.style.backgroundColor = "green";
+  }
+
+  // 프로퍼티 리스너 방식으로 이벤트 등록하기
+  const btnEl = document.querySelector(".btn1");
+  btnEl.onclick = () => {
+    alert("버튼 1이 눌러졌습니다.")
+  };
+  // 이벤트 등록 메서드로 이벤트 등록하기
+  const btnEl2 = document.querySelector(".btn2");
+  btnEl2.addEventListener("click", () => {
+    alert("버튼 2가 눌러졌습니다.")
+  })
+  function clickEvent() {
+    alert("버튼 3이 눌렸습니다.")
+  }
+</script>
+</body>
+</html>
